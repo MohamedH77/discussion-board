@@ -1,7 +1,8 @@
 import User from "./User"
-import Other from "./Other"
+import DayThreads from "./DayThreads"
+import Comments from "./Comments"
 
 
 
 
-module.exports = { Other, User }
+module.exports = { DayThreads, User, Comments}
