@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk({
-      include: [{ modle: User}],
+      
       attributes: { exclude: ['password'] },
       order: [['name', 'ASC']],
     });
