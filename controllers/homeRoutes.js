@@ -1,11 +1,12 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { Other, User } = require("../models");
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
 router.get('/', withAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
+    const userData = await User.findByPk({
+      include: [{ modle: User}],
       attributes: { exclude: ['password'] },
       order: [['name', 'ASC']],
     });
