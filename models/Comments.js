@@ -11,13 +11,17 @@ Comments.init(
         primaryKey: true,
         allowNull: false,
     },
-    understanding: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     comment: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    upVote: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
+    downVote: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -27,11 +31,11 @@ Comments.init(
             key: 'id',
         },
     },
-    dayThreads_id: {
+    userPost_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'DayThreads',
+            model: 'UserPost',
             key: 'id',
         },
     },
@@ -39,6 +43,7 @@ Comments.init(
   {
     sequelize,
     timestamps: true,
+    freezeTableName: true,
     underscored: true,
     modelName: 'Comments'
   }
