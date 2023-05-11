@@ -28,6 +28,7 @@ const sess = {
   }),
 };
 
+app.use('/api', require('./controllers/api/'));
 app.use(session(sess));
 
 
