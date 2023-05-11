@@ -6,31 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
   <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      User Registry
-    </h1>
-    <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
+  <div class="flex-column flex-no-wrap w-100 bg-dark">
+    <header class="display-flex p-2 m-3 text-primary">
+      <h1 class="col-xl-3">
+        <a>Full Stack Bootcamp Social Hub</a>
+      </h1>
+      <nav class="col-xl-9 row align-center justify-content-between">
+        <div class="p-3 col-xl-3 text-lg">
+          <a href="/home">home</a>
+        </div>
+        {{#if logged_in}}
+        <div class="p-3 col-xl-3 text-lg">
+          <a href="/profile">profile</a>
+        </div>
+        <div class="col-xl-3">
+          <button class="btn btn-lg btn-primary" id="logout">logout</button>
+        </div>
+        {{else}}
+        <div class="p-3 col-xl-3">
+          <button class="btn btn-lg btn-primary" id="login">login</button>
+          <a href="/login">login</a>
+        </div>
+        {{/if}}
+      </nav>
+    </header>
+  </div>
 
-  <!-- Only include the logout script if the user is logged in -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+  <main class="m-5">
+    {{{body}}}
+    <!-- Only include the logout script if the user is logged in -->
+  </main>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
