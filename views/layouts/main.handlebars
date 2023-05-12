@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
   <link rel="stylesheet" href="/css/jass.css">
-  {{!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> --}}
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
@@ -28,8 +28,8 @@
         </div>
         {{else}}
         <div class="p-3 col-xl-3">
-          <button class="btn btn-lg btn-primary" id="login">login</button>
-          <a href="/login">login</a>
+          <button class="btn btn-lg btn-primary" id="login"><a href="/login">login</a></button>
+          
         </div>
         {{/if}}
       </nav>
@@ -42,6 +42,7 @@
   </main>
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
+    <script src="/js/homepage.js"></script>
     {{/if}}
 </body>
 
