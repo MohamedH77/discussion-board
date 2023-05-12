@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, UserPost } = require('../../models');
 
 router.post('/login', async (req, res) => {
   try {
@@ -31,6 +31,9 @@ router.post('/login', async (req, res) => {
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
+  res.render('homepage', {
+
+  })
   } catch (err) {
     res.status(400).json(err);
   }
