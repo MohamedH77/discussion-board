@@ -1,8 +1,8 @@
 const router = require("express").Router();
+const  User  = require("../../models/User");
 const nodemailer = require("../../services/nodemailer");
-const { User } = require("../../models");
 
-router.post("/signup", async (req, res) => {
+router.post("/login", async (req, res) => {
     try {
         const { fname, lname , email, password } = req.body;
     
@@ -31,7 +31,9 @@ router.post("/signup", async (req, res) => {
     } catch (error) {
         next(error);
     }
-})
+});
+
+
 
 module.exports = router;
 
