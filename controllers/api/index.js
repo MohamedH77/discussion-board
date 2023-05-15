@@ -7,7 +7,7 @@ const authController = require("./authController");
 
 // router.use('/selectedpost', selectedPost);
 router.use('/users', userRoutes);
-router.use("/comments", commentsRouters);
+router.use('/comments', commentsRouters);
 router.use("/delete", deleteUser);
 router.use("/auth", authController);
 
