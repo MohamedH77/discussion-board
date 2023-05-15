@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
-const { Comment } = require("../../models");
+const { Comments } = require("../../models");
 
 
 router.post("/comments", withAuth, async (req, res) => {
   try {
-    const newComment = await Comment.create({
-      content: req.body.content,
+    const newComment = await Comments.create({
+      comment: req.body.comment,
       UserId: req.session.user_id,
        // set the UserId foreign key to the logged in user's id
     });
@@ -17,3 +17,4 @@ router.post("/comments", withAuth, async (req, res) => {
 });
 
 module.exports = router;
+
