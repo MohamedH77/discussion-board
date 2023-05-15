@@ -2,6 +2,7 @@ const User = require("./User")
 const UserPost = require("./UserPost")
 const Comments = require("./Comments")
 const Tag = require("./Tag")
+const Like = require("./Like")
 
 
 UserPost.belongsTo(User, {
@@ -40,6 +41,17 @@ User.hasMany(Comments, {
     onDelete: 'CASCADE',
 });
 
+User.belongsToMany(UserPost, {
+    through: Like,
+    as: 'liked_by'
 
-module.exports = { UserPost, User, Comments, Tag}
+})
+
+UserPost.belongsToMany(User, {
+    through: Like,
+    as: 'likes'
+})
+
+
+module.exports = { UserPost, User, Comments, Tag, Like}
   
