@@ -43,27 +43,28 @@
               <p>Posted On: {{selectedPost.createdAt}}</p>
               <p>Likes: {{selectedPost.likes.length}}</p>
               {{#if userLiked}}
-              <button class="btn btn-primary" type="submit" data-like="unlike" data-userPostId="{{selectedPost.id}}" data-userId="{{selectedPost.User.fname}}">UNLIKE</button>
+              <button class="btn btn-primary" type="submit" data-like="unlike" data-userPostId="{{selectedPost.id}}"
+                data-userId="{{selectedPost.User.fname}}">UNLIKE</button>
               {{else}}
-                <button class="btn btn-primary" type="submit" data-like="like" data-userPostId="{{selectedPost.id}}" data-userId="{{selectedPost.User.fname}}">LIKE</button>
+              <button class="btn btn-primary" type="submit" data-like="like" data-userPostId="{{selectedPost.id}}"
+                data-userId="{{selectedPost.User.fname}}">LIKE</button>
               {{/if}}
             </div>
             <div class="card card-footer card-rounded">
-              <h3 data-id={{selectedPost.id}} class="w-100 commentsTag">Comments</h3>
-              <div class="card card-footer card-rounded">
-                <p>User Id:</p>
-                <p>Comment:</p>
-                <p>Upvote/Downvote buttons</p>
-              </div>
+              <h3 id="selectedPost" data-id="{{selectedPost.id}}" class="w-100 commentsTag">Comments</h3>
+
+              {{#each comments as |comment| }}
+              {{> comments}}
+              {{/each}}
             </div>
             <div class="card card-footer card-rounded">
               <form class="form login-form">
                 <div class="form-group">
-                  <label for="password-login">Comment:</label>
-                  <input class="form-input" type="comment" id="comment" placeholder="comment text goes here" />
-                </div>
+                  <label for="comment-form">Comment:</label>
+                  <input name="comment-body" class="form-input" type="text" placeholder="comment text goes here" />
                 <div class="form-group">
-                  <button class="btn btn-primary" type="submit">Comment</button>
+                  <button id="commentButton" class="btn btn-primary" type="submit">Comment</button>
+                </div>
                 </div>
               </form>
             </div>
@@ -73,3 +74,5 @@
     </div>
   </div>
 </div>
+
+<script src="/js/comment.js"></script>
