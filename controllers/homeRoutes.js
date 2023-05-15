@@ -66,6 +66,7 @@ router.get('/post/:id', async (req, res) => {
     // console.log(posts);
 
     const commentData = await Comments.findAll({
+      where: {userPost_id: req.params.id},
       include: [{
         model: User,
         attributes: { exclude: ['password'] },
