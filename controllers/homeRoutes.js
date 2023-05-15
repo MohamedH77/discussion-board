@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, UserPost } = require("../models");
+const { User, UserPost, Like } = require("../models");
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
@@ -34,13 +34,26 @@ router.get('/post/:id', async (req, res) => {
         model: User,
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
-      }]
+      },
+    {
+      model: User, through: Like, as: 'likes' 
+    }]
     });
     console.log(req.params.id)
 
     const selectedPost = selectedPostData.get({ plain: true });
 
     console.log(selectedPost);
+    console.log(req.session.user_id)
+
+
+    let userLiked = false
+    for (i=0; i<selectedPost.likes.length; i++){
+      // console.log(selectedPost.likes[i].id
+      if(selectedPost.likes[i].id==req.session.user_id)  userLiked = true
+      
+    }
+    console.log(selectedPost.likes)
 
     const postData = await UserPost.findAll({
       include: [{
@@ -52,12 +65,13 @@ router.get('/post/:id', async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    console.log(posts);
+    // console.log(posts);
 
 
     res.render('selectedPost', {
       posts,
-      selectedPost,
+     selectedPost,
+      userLiked,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });

@@ -19,7 +19,7 @@ const LikeData = [
   },
   {
     user_id: 5,
-    userPost_id: 3,
+    userPost_id: 5,
   },
 ];
 
