@@ -3,14 +3,13 @@ const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const hashedPassword = bcrypt.hashSync(process.env.EMAIL_PASSWORD, 10);
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_ADDRESS,
-    pass: bcrypt.compareSync(
-      process.env.EMAIL_PASSWORD,
-      process.env.EMAIL_PASSWORD_HASH
-    ),
+    pass: hashedPassword,
   },
 });
 
