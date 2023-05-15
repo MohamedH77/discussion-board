@@ -5,3 +5,7 @@
 .commentsTag {
   font-size: large;
 }
+
+.hidden {
+  display: none;
+}
