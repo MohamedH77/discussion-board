@@ -37,6 +37,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+//Authentication middleware
+app.use((req, res, next) => {
+  if (req.session.user){
+    res.locals.user = req.session.user;
+  }
+  next();
+});
+
 app.use(routes);
 
 // The line below prevents sequelize from syncing the database in a production environment.
