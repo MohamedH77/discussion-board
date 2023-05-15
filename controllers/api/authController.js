@@ -24,7 +24,9 @@ router.post("/signup", async (req, res) => {
         };
     
         await nodemailer.sendEmail(mailOptions);
-    
+
+        req.session.loggedIn = true;
+        req.session.userId = newUser.id;
         res.redirect("/login");
     } catch (error) {
         next(error);
