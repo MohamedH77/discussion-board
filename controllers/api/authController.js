@@ -4,7 +4,7 @@ const { User } = require("../../models");
 
 router.post("/signup", async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { fname, lname , email, password } = req.body;
     
         // Check if the email is already registered
         const existingUser = await User.findOne({ where: { email } });
@@ -13,7 +13,7 @@ router.post("/signup", async (req, res) => {
         }
     
         // Create new user
-        const newUser = await User.create({ name, email, password });
+        const newUser = await User.create({ fname, lname, email, password });
     
         // Send welcome email
         const mailOptions = {
@@ -27,7 +27,7 @@ router.post("/signup", async (req, res) => {
 
         req.session.loggedIn = true;
         req.session.userId = newUser.id;
-        res.redirect("/login");
+        res.redirect("/");
     } catch (error) {
         next(error);
     }
