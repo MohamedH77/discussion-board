@@ -29,3 +29,20 @@
   line-height: 1.5;
   resize: none; 
 }
+
+.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.responsivewidth{
+  width: 90%;
+}
+
+@media screen and (max-width: 639px) {
+  .colsm12 {
+    flex: 0 0 75%;
+    width: 90%;
+  }
+  
+
+}
