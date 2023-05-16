@@ -73,11 +73,9 @@
               <p>Posted On: {{selectedPost.createdAt}}</p>
               <p>Likes: {{selectedPost.likes.length}}</p>
               {{#if userLiked}}
-              <button class="btn btn-primary" type="submit" data-like="unlike" data-userPostId="{{selectedPost.id}}"
-                data-userId="{{selectedPost.User.fname}}">UNLIKE</button>
+              <button class="btn btn-primary" id="like" type="submit" data-like="unlike" data-userPostId="{{selectedPost.id}}">UNLIKE</button>
               {{else}}
-              <button class="btn btn-primary" type="submit" data-like="like" data-userPostId="{{selectedPost.id}}"
-                data-userId="{{selectedPost.User.fname}}">LIKE</button>
+              <button class="btn btn-primary" id="like" type="submit" data-like="like" data-userPostId="{{selectedPost.id}}">LIKE</button>
               {{/if}}
             </div>
             <div class="card card-footer card-rounded">
@@ -107,4 +105,8 @@
 
 <script src="/js/comment.js"></script>
 
+
 <script src="/js/newpost.js"></script>
+
+<script src="/js/like.js"></script>
+
