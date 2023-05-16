@@ -14,29 +14,42 @@
 
 ## Description
 
-Post how you felt about the last week's bootcamp calsses
+A social media platform to talk about the day's class and intereact with other students posts via comments and likes. 
 
 ## Installation
 
-npm i, npm -y
+Run "npm i" to install all of the packages required to work with the project. then run "node start" to run a script to start the server, or run node server.js
+
+## Technologies Utilized
+
+- Node
+- CSS
+- JASS
+- Handlebars.JS 
+- Javascript
+- Express
+- Sequelize
+- Node-automated Email Sender
 
 ## Features
- -login by email, name and password
-    -make a post
-    -filter by tags
-    -get autimated email when you sign up
-    -view other people's posts 
-    -login to make a post, see comments, and like posts
-    -update your profile
-    -view your posts on your profile
-    -like and unlike posts via profile
+
+- login with email and password
+- make a post
+- filter by tags
+- get autimated email when you sign up
+- view other people's posts 
+- login to make a post, see comments, and like posts
+- update your profile
+- view your posts on your profile
+- like and unlike posts via profile
+ 
 ## Tests
 
 N/A
 
 ## Usage
 
- Make sure to have the all the dependencies
+ This site is uploaded to heroku. On heroku, you can log in/sign up, view your own posts, update your profile info, view others posts, comment and like others posts, and filter posts by tags. 
 
 ## License
 
@@ -50,17 +63,29 @@ This project is licensed under the MIT license. Click [here](https://choosealice
 
 ## Contributing
 
- -Fork the repository.
-    -Create a new branch.
-    -Make your changes and commit them.
-    -Push to the branch.
-    -Submit a pull request.
+ - Fork the repository.
+ - Create a new branch.
+ - Make your changes and commit them.
+ - Push to the branch.
+ - Submit a pull request.
 
 ## Credits
 
+- Jacob Nelson-Stone
+- Sean Hayes
+- Jamie Glarner
+- Mohamed Mohamed
+
 ## GitHub
 
-JacobDNelsonStone, hayessea000, jglarner3, MohamedH77
+- JacobDNelsonStone
+- hayessea000
+- jglarner3
+- MohamedH77
+
+## Links
+
+[Here's a link to the live webapp]()
 
 ---
 
