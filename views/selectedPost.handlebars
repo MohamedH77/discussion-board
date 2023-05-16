@@ -28,35 +28,8 @@
 
 {{> newpost}}
 
-<div class="pt-5 row">
-  <div class="col-3">
-    {{#each posts as |post| }}
-    <div class="flex-column flex-wrap w-100">
-      <div class="display-flex">
-        <div class="">
-          <div class="card p-4 card-rounded">
-            <div class="card card-header">
-              <h2>Author: {{post.User.fname}} {{post.User.lname}}</h2>
-              <h2>{{post.title}} </h2>
-            </div>
-            <div class="card card-body card-rounded">
-              <p>{{post.body}}</p>
-            </div>
-            <div class="card card-body card-rounded">
-              <p>Tag: {{post.Tag.tag_name}}</p>
-            </div>
-            <div class="card card-body card-rounded">
-              <p>Posted On: {{post.createdAt}}</p>
-            </div>
-            <div class="card card-footer">
-              <h3><button data-id={{post.id}} class="btn btn-primary w-100 commentsTag">Show Comments</button></h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {{/each}}
-  </div>
+<div class="pt-5 row flex-wrap">
+  
 
   <div class="col-xl-9">
     <div class="">
@@ -104,6 +77,35 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="col-xl-3 col-sm-12">
+    {{#each posts as |post| }}
+    <div class="flex-column flex-wrap w-100">
+      <div class="display-flex">
+        <div class="">
+          <div class="card p-4 card-rounded">
+            <div class="card card-header">
+              <h2>Author: {{post.User.fname}} {{post.User.lname}}</h2>
+              <h2>{{post.title}} </h2>
+            </div>
+            <div class="card card-body card-rounded">
+              <p>{{post.body}}</p>
+            </div>
+            <div class="card card-body card-rounded">
+              <p>Tag: {{post.Tag.tag_name}}</p>
+            </div>
+            <div class="card card-body card-rounded">
+              <p>Posted On: {{post.createdAt}}</p>
+            </div>
+            <div class="card card-footer">
+              <h3><button data-id={{post.id}} class="btn btn-primary w-100 commentsTag">Show Comments</button></h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
   </div>
 </div>
 
