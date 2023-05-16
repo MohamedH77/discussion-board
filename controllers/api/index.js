@@ -5,13 +5,13 @@ const deleteUser = require("./deleteRoutes");
 
 // const selectedPost = require('./selectedRoutes');
 const likeRouters = require("./likeRoutes");
-const authController = require("./authController");
+
 const newPost = require('./newPostRoutes');
 
 router.use('/newpost', newPost);
 router.use('/users', userRoutes);
 router.use('/comments', commentsRouters);
 router.use("/delete", deleteUser);
-
+router.use('/like', likeRouters);
 
 module.exports = router;
