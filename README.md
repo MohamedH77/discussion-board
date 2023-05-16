@@ -83,9 +83,13 @@ This project is licensed under the MIT license. Click [here](https://choosealice
 - jglarner3
 - MohamedH77
 
-## Links
+## Webpage
 
-[Here's a link to the live webapp]()
+https://discussion-board-hayessea000.herokuapp.com/
+
+![Here's a screenshot of our login page](./images/discussion-board-hayessea000.herokuapp.com_login.png)
+
+![Here's a screenshot of a user post](./images/discussion-board-hayessea000.herokuapp.com_post_1.png)
 
 ---
 
