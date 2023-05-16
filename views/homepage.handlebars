@@ -4,21 +4,26 @@
       Tags
     </h1>
     <nav class="col-xl-10 row align-center justify-content-between">
-      <div class="p-3 col-xl-3 text-lg">
+      <div class="p-2 col-xl-2 text-lg">
         <a id="html">HTML</a>
       </div>
-      <div class="p-3 col-xl-3 text-lg">
+      <div class="p-2 col-xl-2 text-lg">
         <a id="css">CSS</a>
       </div>
-      <div class="p-3 col-xl-3 text-lg">
+      <div class="p-2 col-xl-2 text-lg">
         <a id="javascript">JavaScript</a>
       </div>
-      <div class="p-3 col-xl-3 text-lg">
+      <div class="p-2 col-xl-2 text-lg">
         <a id="other">Other</a>
+      </div>
+      <div class="p-2 col-xl-2 text-lg">
+        <a id="new-post">➕ New Post</a>
       </div>
     </nav>
   </header>
 </div>
+
+{{> newpost}}
 
 {{#each posts as |post| }}
 <div class="pt-5 flex-column flex-no-wrap col-xl-4 w-25">
@@ -44,3 +49,8 @@
   </div>
 </div>
 {{/each}}
+
+
+
+
+<script src="/js/newpost.js"></script>

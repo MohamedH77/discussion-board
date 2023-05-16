@@ -3,9 +3,9 @@ const userRoutes = require('./userRoutes');
 const commentsRouters = require("./commentsRoutes");
 const deleteUser = require("./deleteRoutes");
 const authController = require("./authController");
-// const selectedPost = require('./selectedRoutes');
+const newPost = require('./newPostRoutes');
 
-// router.use('/selectedpost', selectedPost);
+router.use('/newpost', newPost);
 router.use('/users', userRoutes);
 router.use('/comments', commentsRouters);
 router.use("/delete", deleteUser);
