@@ -11,6 +11,7 @@ const newPostHandler = async (event) => {
   event.preventDefault();
   console.log('clicked');
 
+  const tag_id = document.querySelector('#tags').value;
   const title = document.querySelector('#post-title').value;
   const message = document.querySelector('#post-message').value;
 
@@ -19,6 +20,7 @@ const newPostHandler = async (event) => {
     body: JSON.stringify({
       title,
       message,
+      tag_id,
     }),
     headers: { 'Content-Type': 'application/json' },
   });

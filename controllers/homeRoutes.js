@@ -133,6 +133,131 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+router.get('/html', withAuth, async (req, res) => {
+  try {
+    const postData = await UserPost.findAll({
+      where: {tag_id: 1 },
+      include: [{
+        model: User,
+        attributes: { exclude: ['password'] },
+        order: [['name', 'ASC']]
+      }]
+    });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    console.log(posts);
+
+    res.render('homepage', {
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/css', withAuth, async (req, res) => {
+  try {
+    const postData = await UserPost.findAll({
+      where: {tag_id: 2 },
+      include: [{
+        model: User,
+        attributes: { exclude: ['password'] },
+        order: [['name', 'ASC']]
+      }]
+    });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    console.log(posts);
+
+    res.render('homepage', {
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/javascript', withAuth, async (req, res) => {
+  try {
+    const postData = await UserPost.findAll({
+      where: {tag_id: 3 },
+      include: [{
+        model: User,
+        attributes: { exclude: ['password'] },
+        order: [['name', 'ASC']]
+      }]
+    });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    console.log(posts);
+
+    res.render('homepage', {
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/node', withAuth, async (req, res) => {
+  try {
+    const postData = await UserPost.findAll({
+      where: {tag_id: 4 },
+      include: [{
+        model: User,
+        attributes: { exclude: ['password'] },
+        order: [['name', 'ASC']]
+      }]
+    });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    console.log(posts);
+
+    res.render('homepage', {
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/other', withAuth, async (req, res) => {
+  try {
+    const postData = await UserPost.findAll({
+      where: {tag_id: 5 },
+      include: [{
+        model: User,
+        attributes: { exclude: ['password'] },
+        order: [['name', 'ASC']]
+      }]
+    });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    console.log(posts);
+
+    res.render('homepage', {
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {

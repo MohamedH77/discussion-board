@@ -8,6 +8,7 @@ router.post('/', async (req, res) => {
       title: req.body.title,
       body: req.body.message, 
       user_id: req.session.user_id,
+      tag_id: req.body.tag_id,
       include: [{
         model: User,
         where: req.session.user_id,
