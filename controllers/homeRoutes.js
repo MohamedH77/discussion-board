@@ -82,6 +82,7 @@ router.get('/post/:id', async (req, res) => {
       posts,
       selectedPost,
       comments,
+      userLiked,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
