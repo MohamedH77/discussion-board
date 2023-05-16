@@ -12,8 +12,8 @@
 <body>
   <div class="flex-column flex-no-wrap w-100 bg-dark">
     <header class="display-flex p-2 m-3 text-primary">
-      <h1 class="col-xl-3">
-        <a>Full Stack Bootcamp Social Hub</a>
+      <h1 class="col-xl-3 text-light">
+        Full Stack Bootcamp Social Hub
       </h1>
       <nav class="col-xl-9 row align-center justify-content-between">
         <div class="p-3 col-xl-3 text-lg">
@@ -38,7 +38,6 @@
 
   <main class="m-5">
     {{{body}}}
-    <!-- Only include the logout script if the user is logged in -->
   </main>
     {{#if logged_in}}
     <script src="/js/logout.js"></script>

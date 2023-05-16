@@ -41,7 +41,9 @@
             </div>
             <div class="card card-body card-rounded">
               <p>{{post.body}}</p>
-
+            </div>
+            <div class="card card-body card-rounded">
+              <p>Tag: {{post.Tag.tag_name}}</p>
             </div>
             <div class="card card-body card-rounded">
               <p>Posted On: {{post.createdAt}}</p>
@@ -67,7 +69,9 @@
             </div>
             <div class="card card-body card-rounded">
               <p>{{selectedPost.body}}</p>
-
+            </div>
+            <div class="card card-body card-rounded">
+              <p>Tag: {{selectedPost.Tag.tag_name}}</p>
             </div>
             <div class="card card-body card-rounded">
               <p>Posted On: {{selectedPost.createdAt}}</p>

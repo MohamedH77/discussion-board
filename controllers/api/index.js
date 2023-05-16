@@ -2,10 +2,7 @@ const router = require('express').Router();
 const userRoutes = require('./userRoutes');
 const commentsRouters = require("./commentsRoutes");
 const deleteUser = require("./deleteRoutes");
-
-// const selectedPost = require('./selectedRoutes');
 const likeRouters = require("./likeRoutes");
-
 const newPost = require('./newPostRoutes');
 
 router.use('/newpost', newPost);

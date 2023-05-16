@@ -1,12 +1,3 @@
-/*
-  This version of the connection file will work locally,
-  as well as when you deploy a MySQL app to Heroku.
-
-  JAWS_DB is an add-on offered by Heroku that provides 
-  you with a hosted MySQL database.
-
-*/
-
 const Sequelize = require('sequelize');
 require('dotenv').config();
 

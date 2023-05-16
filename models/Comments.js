@@ -15,14 +15,6 @@ Comments.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    upVote: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-    },
-    downVote: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-    },
     user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -50,4 +42,3 @@ Comments.init(
 );
 
 module.exports = Comments;
-// change all
