@@ -42,12 +42,12 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 // use below if in dev
-sequelize.sync().then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
+// sequelize.sync().then(() => {
+//   app.listen(PORT, () => console.log('Now listening'));
+// });
 
 // use below if in production
 
-// sequelize.sync({force: false}).then(() => {
-//   app.listen(PORT, () => console.log('Now listening'));
-// });
+sequelize.sync({force: false}).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});
