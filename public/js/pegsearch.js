@@ -38,4 +38,4 @@ const htmlHandler = async function (event) {
     .querySelector('#other')
     .addEventListener('click', otherHandler);
 
-Message #general
+
