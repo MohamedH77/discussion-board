@@ -63,7 +63,7 @@ router.get('/post/:id', async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    // console.log(posts);
+    console.log(posts);
 
     const commentData = await Comments.findAll({
       where: {userPost_id: req.params.id},
@@ -96,7 +96,7 @@ router.get('/profile', withAuth, async (req, res) => {
       where: { id: req.session.user_id },
     });
 
-    console.log(userData);
+     console.log(userData);
     const user = userData.get({ plain: true });
 
 

@@ -1,9 +1,22 @@
 const router = require('express').Router();
 const { User, UserPost } = require('../../models');
+const nodemailer = require("../../services/nodemailer")
 
 router.post('/', async (req, res) => {
+  console.log(req.body)
   try {
     const userData = await User.create(req.body);
+    console.log(userData)
+
+    const mailOptions = {
+      form: "group4@teleworm.us",
+      to: userData.email,
+      subject: "Welcome to my discussion board!",
+      text: "Thank you for signing up. We look forward to hearing from you!",
+    };
+
+    let mail = await nodemailer.sendEmail(mailOptions);
+    console.log(mail)
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -12,7 +25,8 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err)
+    res.status(400).json({err});
   }
 });
 

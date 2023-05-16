@@ -40,12 +40,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Authentication middleware
-app.use((req, res, next) => {
-  if (req.session.user){
-    res.locals.user = req.session.user;
-  }
-  next();
-});
+// app.use((req, res, next) => {
+//   if (req.session.user){
+//     res.locals.user = req.session.user;
+//   }
+//   next();
+// });
 
 app.use(routes);
 

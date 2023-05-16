@@ -3,19 +3,26 @@ const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const hashedPassword = bcrypt.hashSync(process.env.EMAIL_PASSWORD, 10);
+const createTransporter = (testaccount) => {
+  return nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false,
+    auth: {
+      user: testaccount.user,
+      pass: testaccount.pass,
+    },
+  })
+}
 
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: hashedPassword,
-  },
-});
-
-function sendEmail(options) {
-  return new Promise((resolve, reject) => {
+async function sendEmail(options) {
+    let testaccount = await nodemailer.createTestAccount();
+    console.log("nodemailer test account", testaccount);
+    const transporter = createTransporter(testaccount);
+    return new Promise((resolve, reject) => {
     transporter.sendMail(options, (error, info) => {
+        console.log(error)
+        console.log(info)
       if (error) {
         reject(error);
       } else {
