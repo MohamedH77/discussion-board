@@ -1,11 +1,3 @@
-/*
-const secondNavbar = document.getElementById("#html");
-const secondNavbar = document.getElementById("#css");
-const secondNavbar = document.getElementById("#javascript");
-const secondNavbar = document.getElementById("#other");
-*/
-
-
 const htmlHandler = async function (event) {
     document.location.replace('/html');
   };

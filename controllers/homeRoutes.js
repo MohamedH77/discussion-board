@@ -1,8 +1,7 @@
 const router = require('express').Router();
-const { User, UserPost, Comments, Like } = require("../models");
+const { User, UserPost, Comments, Like, Tag } = require("../models");
 const withAuth = require('../utils/auth');
 
-// Prevent non logged in users from viewing the homepage
 router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await UserPost.findAll({
@@ -10,6 +9,9 @@ router.get('/', withAuth, async (req, res) => {
         model: User,
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
+      },
+      {
+        model: Tag, 
       }]
     });
 
@@ -19,7 +21,6 @@ router.get('/', withAuth, async (req, res) => {
 
     res.render('homepage', {
       posts,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -27,7 +28,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
   try {
     const selectedPostData = await UserPost.findByPk(req.params.id, {
       include: [{
@@ -35,9 +36,12 @@ router.get('/post/:id', async (req, res) => {
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
       },
-    {
-      model: User, through: Like, as: 'likes' 
-    }]
+      {
+        model: User, through: Like, as: 'likes' 
+      },
+      {
+        model: Tag, 
+      }]
     });
     console.log(req.params.id)
 
@@ -58,6 +62,9 @@ router.get('/post/:id', async (req, res) => {
         model: User,
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
+      },
+      {
+        model: Tag, 
       }]
     });
 
@@ -83,7 +90,6 @@ router.get('/post/:id', async (req, res) => {
       selectedPost,
       comments,
       userLiked,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -114,6 +120,9 @@ router.get('/profile', withAuth, async (req, res) => {
         model: User,
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
+      },
+      {
+        model: Tag, 
       }]
     });
 
@@ -124,7 +133,6 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('profile', {
       user,
       posts,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -141,6 +149,9 @@ router.get('/html', withAuth, async (req, res) => {
         model: User,
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
+      },
+      {
+        model: Tag, 
       }]
     });
 
@@ -150,7 +161,6 @@ router.get('/html', withAuth, async (req, res) => {
 
     res.render('homepage', {
       posts,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -166,6 +176,9 @@ router.get('/css', withAuth, async (req, res) => {
         model: User,
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
+      },
+      {
+        model: Tag, 
       }]
     });
 
@@ -175,7 +188,6 @@ router.get('/css', withAuth, async (req, res) => {
 
     res.render('homepage', {
       posts,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -191,6 +203,9 @@ router.get('/javascript', withAuth, async (req, res) => {
         model: User,
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
+      },
+      {
+        model: Tag, 
       }]
     });
 
@@ -200,7 +215,6 @@ router.get('/javascript', withAuth, async (req, res) => {
 
     res.render('homepage', {
       posts,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -216,6 +230,9 @@ router.get('/node', withAuth, async (req, res) => {
         model: User,
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
+      },
+      {
+        model: Tag, 
       }]
     });
 
@@ -225,7 +242,6 @@ router.get('/node', withAuth, async (req, res) => {
 
     res.render('homepage', {
       posts,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -241,6 +257,9 @@ router.get('/other', withAuth, async (req, res) => {
         model: User,
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']]
+      },
+      {
+        model: Tag, 
       }]
     });
 
@@ -250,7 +269,6 @@ router.get('/other', withAuth, async (req, res) => {
 
     res.render('homepage', {
       posts,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -259,7 +277,6 @@ router.get('/other', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
     res.redirect('/');
     return;
